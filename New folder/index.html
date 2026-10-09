@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>klu GameZone - Gaming Tournament Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎮 <span>KLU</span>GAMEZONE
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#tournaments">Tournaments</a>
+            <a href="#teams">Teams</a>
+            <a href="#matches">Matches</a>
+            <a href="#leaderboard">Leaderboard</a>
+            <a href="#prizes">Prizes</a>
+        </nav>
+
+        <button class="login-btn" onclick="openLogin()">
+            Login
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">🔥 THE ULTIMATE ESPORTS PLATFORM</p>
+
+            <h1>
+                BATTLE.
+                <span>COMPETE.</span>
+                WIN.
+            </h1>
+
+            <p>
+                Join exciting gaming tournaments, build your team,
+                compete against the best players and win amazing prizes.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#tournaments" class="primary-btn">
+                    🏆 Join Tournament
+                </a>
+
+                <a href="#leaderboard" class="secondary-btn">
+                    View Leaderboard
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="live-badge">
+                🔴 LIVE
+            </div>
+
+            <h3>FREE FIRE CHAMPIONSHIP</h3>
+
+            <p>Grand Final</p>
+
+            <div class="score">
+
+                <div>
+                    <strong id="team1Score">12</strong>
+                    <span>TEAM DEMONS</span>
+                </div>
+
+                <div class="vs">
+                    VS
+                </div>
+
+                <div>
+                    <strong id="team2Score">8</strong>
+                    <span>TEAM ALPHA</span>
+                </div>
+
+            </div>
+
+            <p class="round">
+                Round 3 • Match #24
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <h2>25K+</h2>
+            <p>Players</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>150+</h2>
+            <p>Tournaments</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>₹50L+</h2>
+            <p>Prize Money</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>500+</h2>
+            <p>Teams</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= TOURNAMENTS ================= -->
+
+    <section id="tournaments" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">COMPETE & WIN</p>
+                <h2>Upcoming Tournaments</h2>
+            </div>
+
+            <div class="filters">
+
+                <input
+                    type="text"
+                    id="searchTournament"
+                    placeholder="🔍 Search tournament..."
+                    onkeyup="searchTournament()"
+                >
+
+                <select id="gameFilter" onchange="filterTournaments()">
+
+                    <option value="all">All Games</option>
+                    <option value="Free Fire">Free Fire</option>
+                    <option value="BGMI">BGMI</option>
+                    <option value="Valorant">Valorant</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="tournament-grid" id="tournamentGrid">
+
+            <div class="tournament-card" data-game="Free Fire">
+
+                <div class="game-image freefire">
+                    🔥
+                </div>
+
+                <div class="card-content">
+
+                    <span class="game-tag">FREE FIRE</span>
+
+                    <h3>Free Fire Championship</h3>
+
+                    <p>🏆 Grand Battle Season 5</p>
+
+                    <div class="tournament-info">
+
+                        <span>👥 32 Teams</span>
+                        <span>💰 ₹10,000</span>
+
+                    </div>
+
+                    <div class="tournament-date">
+                        📅 15 September 2026
+                    </div>
+
+                    <button
+                        class="register-btn"
+                        onclick="openRegistration('Free Fire Championship')"
+                    >
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="tournament-card" data-game="BGMI">
+
+                <div class="game-image bgmi">
+                    🎯
+                </div>
+
+                <div class="card-content">
+
+                    <span class="game-tag">BGMI</span>
+
+                    <h3>BGMI Masters Cup</h3>
+
+                    <p>🔥 Battle Royale Tournament</p>
+
+                    <div class="tournament-info">
+
+                        <span>👥 64 Teams</span>
+                        <span>💰 ₹25,000</span>
+
+                    </div>
+
+                    <div class="tournament-date">
+                        📅 20 September 2026
+                    </div>
+
+                    <button
+                        class="register-btn"
+                        onclick="openRegistration('BGMI Masters Cup')"
+                    >
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="tournament-card" data-game="Valorant">
+
+                <div class="game-image valorant">
+                    ⚡
+                </div>
+
+                <div class="card-content">
+
+                    <span class="game-tag">VALORANT</span>
+
+                    <h3>Valorant Pro League</h3>
+
+                    <p>⚔️ 5v5 Competitive Battle</p>
+
+                    <div class="tournament-info">
+
+                        <span>👥 16 Teams</span>
+                        <span>💰 ₹50,000</span>
+
+                    </div>
+
+                    <div class="tournament-date">
+                        📅 25 September 2026
+                    </div>
+
+                    <button
+                        class="register-btn"
+                        onclick="openRegistration('Valorant Pro League')"
+                    >
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COUNTDOWN ================= -->
+
+    <section class="countdown-section">
+
+        <p class="small-title">NEXT BIG EVENT</p>
+
+        <h2>Free Fire Championship Starts In</h2>
+
+        <div class="countdown">
+
+            <div>
+                <strong id="days">50</strong>
+                <span>Days</span>
+            </div>
+
+            <div>
+                <strong id="hours">60</strong>
+                <span>Hours</span>
+            </div>
+
+            <div>
+                <strong id="minutes">20</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div>
+                <strong id="seconds">60</strong>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TEAMS ================= -->
+
+    <section id="teams" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">BUILD YOUR SQUAD</p>
+                <h2>Top Teams</h2>
+            </div>
+
+            <button class="primary-btn" onclick="openTeamModal()">
+                + Create Team
+            </button>
+
+        </div>
+
+
+        <div class="team-grid">
+
+            <div class="team-card">
+
+                <div class="team-logo">👹</div>
+
+                <h3>Team Demons</h3>
+
+                <p>🇮🇳 India</p>
+
+                <div class="team-members">
+                    👤 👤 👤 👤
+                </div>
+
+                <span>4 Members</span>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <div class="team-logo">🐉</div>
+
+                <h3>Dragon Esports</h3>
+
+                <p>🇮🇳 India</p>
+
+                <div class="team-members">
+                    👤 👤 👤 👤
+                </div>
+
+                <span>4 Members</span>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <div class="team-logo">⚡</div>
+
+                <h3>Team Thunder</h3>
+
+                <p>🇮🇳 India</p>
+
+                <div class="team-members">
+                    👤 👤 👤 👤
+                </div>
+
+                <span>4 Members</span>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <div class="team-logo">🔥</div>
+
+                <h3>Fire Kings</h3>
+
+                <p>🇮🇳 India</p>
+
+                <div class="team-members">
+                    👤 👤 👤 👤
+                </div>
+
+                <span>4 Members</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MATCHES ================= -->
+
+    <section id="matches" class="section dark-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">MATCH CENTER</p>
+                <h2>Recent & Upcoming Matches</h2>
+            </div>
+
+        </div>
+
+
+        <div class="matches-container">
+
+            <div class="match-row">
+
+                <div class="match-game">
+                    🔥 Free Fire
+                </div>
+
+                <div class="match-teams">
+                    <strong>Team Demons</strong>
+                    <span>VS</span>
+                    <strong>Team Alpha</strong>
+                </div>
+
+                <div class="match-time">
+                    🔴 LIVE
+                </div>
+
+            </div>
+
+
+            <div class="match-row">
+
+                <div class="match-game">
+                    🎯 BGMI
+                </div>
+
+                <div class="match-teams">
+                    <strong>Dragon Esports</strong>
+                    <span>VS</span>
+                    <strong>Fire Kings</strong>
+                </div>
+
+                <div class="match-time">
+                    06:00 PM
+                </div>
+
+            </div>
+
+
+            <div class="match-row">
+
+                <div class="match-game">
+                    ⚡ Valorant
+                </div>
+
+                <div class="match-teams">
+                    <strong>Team Thunder</strong>
+                    <span>VS</span>
+                    <strong>Shadow Squad</strong>
+                </div>
+
+                <div class="match-time">
+                    08:00 PM
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LEADERBOARD ================= -->
+
+    <section id="leaderboard" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">TOP PLAYERS</p>
+                <h2>Leaderboard</h2>
+            </div>
+
+        </div>
+
+
+        <div class="leaderboard">
+
+            <div class="leader-header">
+
+                <span>Rank</span>
+                <span>Team</span>
+                <span>Wins</span>
+                <span>Points</span>
+
+            </div>
+
+
+            <div class="leader-row first">
+
+                <span>🥇 1</span>
+                <strong>Team Demons</strong>
+                <span>8</span>
+                <strong>240</strong>
+
+            </div>
+
+
+            <div class="leader-row">
+
+                <span>🥈 2</span>
+                <strong>Dragon Esports</strong>
+                <span>7</span>
+                <strong>210</strong>
+
+            </div>
+
+
+            <div class="leader-row">
+
+                <span>🥉 3</span>
+                <strong>Team Thunder</strong>
+                <span>6</span>
+                <strong>180</strong>
+
+            </div>
+
+
+            <div class="leader-row">
+
+                <span>4</span>
+                <strong>Fire Kings</strong>
+                <span>5</span>
+                <strong>150</strong>
+
+            </div>
+
+
+            <div class="leader-row">
+
+                <span>5</span>
+                <strong>Shadow Squad</strong>
+                <span>4</span>
+                <strong>120</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRIZES ================= -->
+
+    <section id="prizes" class="section prizes-section">
+
+        <p class="small-title">REWARDS</p>
+
+        <h2>Prize Pool</h2>
+
+        <div class="prize-grid">
+
+            <div class="prize-card">
+
+                <div>🥇</div>
+
+                <h3>1st Place</h3>
+
+                <strong>₹10,000</strong>
+
+            </div>
+
+
+            <div class="prize-card">
+
+                <div>🥈</div>
+
+                <h3>2nd Place</h3>
+
+                <strong>₹5,000</strong>
+
+            </div>
+
+
+            <div class="prize-card">
+
+                <div>🥉</div>
+
+                <h3>3rd Place</h3>
+
+                <strong>₹2,500</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🎮 KLUGAMEZONE
+        </div>
+
+        <p>
+            The ultimate gaming tournament portal.
+        </p>
+
+        <div class="socials">
+            Discord • YouTube • Instagram • X
+        </div>
+
+        <p class="copyright">
+            © 2026 KLUGameZone. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= REGISTRATION MODAL ================= -->
+
+    <div class="modal" id="registrationModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeRegistration()">
+                ×
+            </button>
+
+            <h2>🏆 Tournament Registration</h2>
+
+            <p id="selectedTournament"></p>
+
+            <form onsubmit="registerTournament(event)">
+
+                <input
+                    type="text"
+                    id="playerName"
+                    placeholder="Player Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="playerEmail"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="teamName"
+                    placeholder="Team Name"
+                    required
+                >
+
+                <button type="submit" class="register-btn">
+                    Confirm Registration
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TEAM MODAL ================= -->
+
+    <div class="modal" id="teamModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeTeamModal()">
+                ×
+            </button>
+
+            <h2>👥 Create Your Team</h2>
+
+            <form onsubmit="createTeam(event)">
+
+                <input
+                    type="text"
+                    id="newTeamName"
+                    placeholder="Team Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="captainName"
+                    placeholder="Captain Name"
+                    required
+                >
+
+                <select required>
+
+                    <option value="">Select Game</option>
+                    <option>Free Fire</option>
+                    <option>BGMI</option>
+                    <option>Valorant</option>
+
+                </select>
+
+                <button type="submit" class="register-btn">
+                    Create Team
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= LOGIN MODAL ================= -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeLogin()">
+                ×
+            </button>
+
+            <h2>🎮 Login</h2>
+
+            <form onsubmit="login(event)">
+
+                <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit" class="register-btn">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
